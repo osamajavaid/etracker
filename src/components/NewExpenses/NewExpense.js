@@ -5,7 +5,7 @@ import ExpenseForm from './ExpenseForm'
 function NewExpense(props) {
   const [btnClosed, setBtnOpen] = useState(false)
 
-  const saveExpenseHandler=enteredExpenseData=>{
+  const saveExpenseHandler=(enteredExpenseData)=>{
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString()
@@ -26,8 +26,8 @@ function NewExpense(props) {
       {!btnClosed &&
       <div className="flex justify-center items-center">
         <button onClick={startAddingExpenses} className='text-2xl text-white bg-slate-700 hover:bg-slate-900 py-3 px-8 rounded-xl'>Add New Expense</button>  
-      </div>
-      }
+      </div>}
+      
       {btnClosed &&
         <ExpenseForm onCancel={stopAddingExpenses} onSaveExpenseData={saveExpenseHandler}></ExpenseForm>
       }
